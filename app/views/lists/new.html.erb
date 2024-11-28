@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Create a New List</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4">
+        <%= form_with model: @list, local: true do |form| %>
+          <div class="form-group">
+            <%= form.label :name, "List Name", class: "form-label" %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+          <% if @list.errors.any? %>
+            <div class="alert alert-danger mt-3">
+              <ul>
+                <% @list.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="text-center mt-4">
+            <%= form.submit "Create List", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-4">
+    <%= link_to "Back to All Lists", lists_path, class: "btn btn-secondary" %>
+  </div>
+</div>

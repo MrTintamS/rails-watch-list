@@ -1,0 +1,76 @@
+.card {
+  border-radius: $border-radius-lg; // Coins arrondis cohérents
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; // Animation fluide
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); // Ombre légère par défaut
+  background-color: white; // Fond blanc par défaut
+  &:hover {
+    transform: translateY(-5px) scale(1.02); // Légère élévation et agrandissement
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); // Ombre plus prononcée au survol
+  }
+  .card-title {
+    font-weight: 500;
+    font-size: $font-size-heading; // Taille définie pour les titres
+    color: $blue; // Couleur principale pour les titres
+    margin-bottom: 0.5rem;
+  }
+  .card-body {
+    padding: 1rem; // Espacement interne
+    font-size: $font-size-body; // Taille définie pour le texte
+    color: $body-color; // Couleur de base pour le texte
+  }
+  .btn-primary {
+    background-color: $blue; // Couleur primaire
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: $border-radius; // Coins arrondis
+    &:hover {
+      background-color: darken($blue, 10%);
+    }
+  }
+  .btn-outline-secondary {
+    border-color: $gray; // Couleur de la bordure
+    color: $gray; // Couleur du texte
+    padding: 0.5rem 1rem;
+    border-radius: $border-radius; // Coins arrondis
+    &:hover {
+      background-color: $gray; // Fond gris au survol
+      color: white;
+    }
+  }
+  .card-img-top {
+    width: 100%; // Adapte l'image à la largeur de la carte
+    height: auto;
+    object-fit: cover; // Assure un rendu uniforme des images
+  }
+}
+// Animation pour le chargement des cartes
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.card {
+  animation: slide-up 0.5s ease forwards; // Animation à l'apparition des cartes
+}
+// Variantes des cartes
+.card-dark {
+  background-color: $gray-dark; // Fond gris sombre
+  color: $light-gray; // Texte clair pour contraste
+  .btn-primary {
+    background-color: lighten($blue, 10%); // Couleur primaire éclaircie
+    &:hover {
+      background-color: $blue;
+    }
+  }
+}
+.card-bordered {
+  border: 1px solid $light-gray; // Bordure grise claire
+  box-shadow: none; // Pas d'ombre par défaut
+}
